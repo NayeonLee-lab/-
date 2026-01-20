@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>치마와와 - 귀여운 쇼핑몰</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'DungGeunMo';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="header-top">
+                <div class="logo">
+                    <span class="logo-icon">👗</span>
+                    <h1>치마와와</h1>
+                    <span class="logo-subtitle">귀여운 쇼핑의 시작</span>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-icon" id="searchBtn">🔍</button>
+                    <button class="btn-icon" id="cartBtn">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-item active">홈</a>
+                <a href="#" class="nav-item">의류</a>
+                <a href="#" class="nav-item">악세서리</a>
+                <a href="#" class="nav-item">신발</a>
+                <a href="#" class="nav-item">가방</a>
+                <a href="#" class="nav-item">모자</a>
+                <a href="#" class="nav-item">특가</a>
+            </nav>
+        </header>
+
+        <!-- 검색 바 -->
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="찾고 싶은 상품을 검색해보세요~" id="searchInput">
+            <button class="btn-search">검색</button>
+        </div>
+
+        <!-- 메인 배너 -->
+        <section class="banner">
+            <div class="banner-content">
+                <div class="banner-character">🌸</div>
+                <h2>치마와와에 오신 걸 환영해요!</h2>
+                <p>귀여운 상품들로 여러분의 하루를 더욱 특별하게 만들어드려요</p>
+            </div>
+        </section>
+
+        <!-- 카테고리 -->
+        <section class="categories">
+            <h2 class="section-title">카테고리</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="의류">
+                    <div class="category-icon">👗</div>
+                    <span>의류</span>
+                </div>
+                <div class="category-card" data-category="악세서리">
+                    <div class="category-icon">💍</div>
+                    <span>악세서리</span>
+                </div>
+                <div class="category-card" data-category="신발">
+                    <div class="category-icon">👠</div>
+                    <span>신발</span>
+                </div>
+                <div class="category-card" data-category="가방">
+                    <div class="category-icon">👜</div>
+                    <span>가방</span>
+                </div>
+                <div class="category-card" data-category="소품">
+                    <div class="category-icon">🎀</div>
+                    <span>소품</span>
+                </div>
+                <div class="category-card" data-category="모자">
+                    <div class="category-icon">🧢</div>
+                    <span>모자</span>
+                </div>
+                <div class="category-card" data-category="특가">
+                    <div class="category-icon">⭐</div>
+                    <span>특가</span>
+                </div>
+            </div>
+            
+            <!-- 의류 하위 카테고리 -->
+            <div class="subcategory-filter" id="clothingSubcategory" style="display: none;">
+                <h3 class="subcategory-title">의류 카테고리</h3>
+                <div class="subcategory-buttons">
+                    <button class="subcategory-btn active" data-subcategory="all">전체</button>
+                    <button class="subcategory-btn" data-subcategory="하의">하의</button>
+                    <button class="subcategory-btn" data-subcategory="상의">상의</button>
+                    <button class="subcategory-btn" data-subcategory="원피스">원피스</button>
+                </div>
+                
+                <!-- 하의 하위 종류 -->
+                <div class="subtype-filter" id="bottomSubtype" style="display: none;">
+                    <div class="subtype-buttons">
+                        <button class="subtype-btn active" data-subtype="all">전체</button>
+                        <button class="subtype-btn" data-subtype="스커트">스커트</button>
+                        <button class="subtype-btn" data-subtype="바지">바지</button>
+                        <button class="subtype-btn" data-subtype="반바지">반바지</button>
+                        <button class="subtype-btn" data-subtype="레깅스">레깅스</button>
+                    </div>
+                </div>
+                
+                <!-- 상의 하위 종류 -->
+                <div class="subtype-filter" id="topSubtype" style="display: none;">
+                    <div class="subtype-buttons">
+                        <button class="subtype-btn active" data-subtype="all">전체</button>
+                        <button class="subtype-btn" data-subtype="티셔츠">티셔츠</button>
+                        <button class="subtype-btn" data-subtype="블라우스">블라우스</button>
+                        <button class="subtype-btn" data-subtype="셔츠">셔츠</button>
+                        <button class="subtype-btn" data-subtype="후드티">후드티</button>
+                        <button class="subtype-btn" data-subtype="니트">니트</button>
+                    </div>
+                </div>
+                
+                <!-- 원피스 하위 종류 -->
+                <div class="subtype-filter" id="dressSubtype" style="display: none;">
+                    <div class="subtype-buttons">
+                        <button class="subtype-btn active" data-subtype="all">전체</button>
+                        <button class="subtype-btn" data-subtype="미니원피스">미니원피스</button>
+                        <button class="subtype-btn" data-subtype="롱원피스">롱원피스</button>
+                        <button class="subtype-btn" data-subtype="플레어원피스">플레어원피스</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 모자 하위 카테고리 -->
+            <div class="subcategory-filter" id="hatSubcategory" style="display: none;">
+                <h3 class="subcategory-title">모자 카테고리</h3>
+                <div class="subcategory-buttons">
+                    <button class="subcategory-btn active" data-subcategory="all">전체</button>
+                    <button class="subcategory-btn" data-subcategory="비니">비니</button>
+                    <button class="subcategory-btn" data-subcategory="볼캡">볼캡</button>
+                    <button class="subcategory-btn" data-subcategory="베레모">베레모</button>
+                    <button class="subcategory-btn" data-subcategory="기타">기타</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 인기 상품 -->
+        <section class="products">
+            <h2 class="section-title">
+                <span class="title-icon">✨</span>
+                인기 상품
+            </h2>
+            <div class="product-grid" id="productGrid">
+                <!-- 상품들이 JavaScript로 동적으로 추가됩니다 -->
+            </div>
+        </section>
+
+        <!-- 장바구니 모달 -->
+        <div class="modal" id="cartModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>🛒 장바구니</h2>
+                    <button class="modal-close" id="closeCart">&times;</button>
+                </div>
+                <div class="modal-body" id="cartItems">
+                    <div class="empty-cart">
+                        <div class="empty-icon">😢</div>
+                        <p>장바구니가 비어있어요</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="cart-total">
+                        <strong>총 금액: <span id="totalPrice">0</span>원</strong>
+                    </div>
+                    <button class="btn-primary" id="checkoutBtn">결제하기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 푸터 -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-character">💕</div>
+                <p>치마와와와 함께하는 즐거운 쇼핑!</p>
+                <p class="footer-copyright">© 2024 치마와와. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
